@@ -9,6 +9,7 @@ class ProductBatch
     if current_batch_size >= batch_size
       CollectivePurchase.create!(orders: orders)
     end
+    save!
   end
 
   def current_batch_size
