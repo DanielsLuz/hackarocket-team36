@@ -3,4 +3,5 @@ class User
   include Mongoid::Timestamps
 
   field :phone_number, type: String
+  field :address, type: String
 end
