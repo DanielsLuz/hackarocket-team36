@@ -4,4 +4,5 @@ class User
 
   field :phone_number, type: String
   field :address, type: String
+  has_many :orders
 end

@@ -1,5 +1,6 @@
 class CollectivePurchase
   include Mongoid::Document
 
-  field :orders, type: Array
+  has_many :orders
+
 end
