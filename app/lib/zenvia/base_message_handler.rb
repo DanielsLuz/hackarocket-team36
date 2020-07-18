@@ -9,10 +9,10 @@ module Zenvia
       if delivery_address_message?
         Zenvia::DeliveryAddressMessageHandler.new.call(
           address_message: message_text,
-          phone_number: @message_event[:from]
+          phone_number: message_event[:from]
         )
       elsif ordering_request_message?
-        Zenvia::OrderMessageHandler.new.call(message_text, @message_event[:from])
+        Zenvia::OrderMessageHandler.new.call(message_text, message_event[:from])
       end
     end
 
