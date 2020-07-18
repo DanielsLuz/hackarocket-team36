@@ -10,6 +10,7 @@ module Zenvia
           address_message: message[:contents].last,
           phone_number: message[:from]
         )
+        MessageConsumer.process(params)
       end
     end
 
