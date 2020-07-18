@@ -3,15 +3,15 @@ module Zenvia
     def call(event:)
       return unless whatsapp_incoming_message_event?(event)
 
-      message = params.dig(:message)
-      contents = message.dig(:contents)
+      message_event = params.dig(:message)
+      contents = message_event.dig(:contents)
 
-      if delivery_address_message?(message)
+      if delivery_address_message?(message_event)
         Zenvia::DeliveryAddressMessageHandler.new.call(
-          address_message: message[:contents].last,
-          phone_number: message[:from]
+          address_message: message_event[:contents].last,
+          phone_number: message_event[:from]
         )
-      elsif ordering_request_message?(message)
+      elsif ordering_request_message?(message_event)
         MessageConsumer.process(params)
       end
     end
@@ -24,11 +24,11 @@ module Zenvia
         event[:channel] == 'whatsapp'
     end
 
-    def delivery_address_message?(message)
+    def delivery_address_message?(message_event)
       false
     end
 
-    def ordering_request_message?(message)
+    def ordering_request_message?(message_event)
       false
     end
   end
