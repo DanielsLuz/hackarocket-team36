@@ -6,7 +6,6 @@ class ProductBatch
 
   def add_order(new_order)
     orders << new_order
-    byebug
     if current_batch_size >= batch_size
       CollectivePurchase.create!(orders: orders)
     end
