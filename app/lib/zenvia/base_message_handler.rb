@@ -1,10 +1,17 @@
 module Zenvia
   class BaseMessageHandler
-    def call(event:)
-      return unless whatsapp_incoming_message_event?(event)
+    MESSAGE_PATTERNS = {
+      MAKE_ORDER: Regexp.union(
+        [/.*fazer.*pedido.*/i, /pedidos/i, /compras/i]
+      )
+    }.freeze
 
-      @message_event = event.dig(:message)
-      @contents = message_event.dig(:contents)
+    def initialize(event:)
+      @event = event
+    end
+
+    def call
+      return unless whatsapp_incoming_message_event?
 
       if delivery_address_message?
         Zenvia::DeliveryAddressMessageHandler.new.call(
@@ -12,20 +19,28 @@ module Zenvia
           address_message: message_text
         )
       elsif ordering_request_message?
-        Zenvia::OrderMessageHandler.new.call(message_text, message_event[:from])
+        Zenvia::OrderMessageHandler.new.call(message_event[:from], message_text)
       end
     end
 
     private
 
-    def whatsapp_incoming_message_event?(event)
-      event[:direction] == 'IN' &&
-        event[:type] == 'MESSAGE' &&
-        event[:channel] == 'whatsapp'
+    def whatsapp_incoming_message_event?
+      @event[:direction] == 'IN' &&
+        @event[:type] == 'MESSAGE' &&
+        @event[:channel] == 'whatsapp'
+    end
+
+    def message_event
+      @message_event ||= @event.dig(:message)
+    end
+
+    def contents
+      @contents ||= message_event.dig(:contents)
     end
 
     def message_text
-      @message_text ||= @contents.find { |content| content[:type] == "text" }.dig(:text)
+      @message_text ||= contents.find { |content| content[:type] == "text" }.dig(:text)
     end
 
     def delivery_address_message?
@@ -33,7 +48,7 @@ module Zenvia
     end
 
     def ordering_request_message?
-      false
+      MESSAGE_PATTERNS[:MAKE_ORDER].match(message_text)
     end
   end
 end

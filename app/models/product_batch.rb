@@ -16,5 +16,4 @@ class ProductBatch
   def current_batch_size
     orders.sum(&:quantity)
   end
-
 end

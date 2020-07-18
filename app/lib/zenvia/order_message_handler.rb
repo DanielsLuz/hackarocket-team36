@@ -9,7 +9,7 @@ module Zenvia
     }.freeze
 
     def call(sender_phone, message_text)
-      user = User.find_by(phone_number: sender_phone)
+      user = User.find_or_create_by(phone_number: sender_phone)
 
       {
         user: user,
@@ -25,13 +25,13 @@ module Zenvia
           product: item[:product],
           quantity: item[:quantity],
           user: user,
-          product_batch: product_batch,
+          product_batch: product_batch
         )
       end
     end
 
     def build_item_payload(items)
-      items.map do |item_data|
+      items.drop(1).map do |item_data|
         {
           product: product_category(item_data[0]),
           quantity: item_data[1]
