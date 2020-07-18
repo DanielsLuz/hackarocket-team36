@@ -8,11 +8,26 @@ module Zenvia
       meat: /carne/i
     }.freeze
 
-    def call(message_text, sender_phone)
+    def call(sender_phone, message_text)
+      user = User.find_by(phone_number: sender_phone)
+
       {
-        sender_phone: sender_phone,
-        products: build_item_payload(items(message_text))
+        user: user,
+        orders: build_orders(user, message_text)
       }
+    end
+
+    def build_orders(user, message_text)
+      build_item_payload(items(message_text)).map do |item|
+        product_batch = ProductBatch.find_by(product: item[:product])
+
+        Order.create!(
+          product: item[:product],
+          quantity: item[:quantity],
+          user: user,
+          product_batch: product_batch,
+        )
+      end
     end
 
     def build_item_payload(items)

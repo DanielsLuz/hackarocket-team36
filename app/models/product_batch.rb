@@ -2,6 +2,7 @@ class ProductBatch
   include Mongoid::Document
 
   field :batch_size, type: Integer
+  field :product, type: String
   has_many :orders
 
   def add_order(new_order)
