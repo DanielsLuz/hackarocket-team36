@@ -29,7 +29,7 @@ module Zenvia
     end
 
     def delivery_address_message?
-      false
+      message_text.match(/(.*),(.*),(.*)/)
     end
 
     def ordering_request_message?
