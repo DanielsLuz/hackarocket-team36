@@ -21,11 +21,12 @@ module Zenvia
       build_item_payload(items(message_text)).map do |item|
         product_batch = ProductBatch.find_by(product: item[:product])
 
-        Order.create!(
-          product: item[:product],
-          quantity: item[:quantity],
-          user: user,
-          product_batch: product_batch
+        product_batch.add_order(
+          Order.new(
+            product: item[:product],
+            quantity: item[:quantity],
+            user: user
+          )
         )
       end
     end

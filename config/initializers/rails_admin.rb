@@ -1,5 +1,10 @@
 RailsAdmin.config do |config|
 
+  config.model 'ProductBatch' do
+    list do
+      configure :current_batch_size
+    end
+  end
   ### Popular gems integration
 
   ## == Devise ==
