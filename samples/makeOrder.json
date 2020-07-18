@@ -1,0 +1,36 @@
+{
+  "id": "6f52ada6-c9d0-4ace-bcbc-550903749789",
+  "timestamp": "2020-07-18T16:46:55.497Z",
+  "type": "MESSAGE",
+  "subscriptionId": "56c85705-a645-4a0d-bebb-c43cb59c1079",
+  "channel": "whatsapp",
+  "direction": "IN",
+  "message": {
+    "id": "7562edeb-b22f-4a75-93f7-edd5cf677d9e",
+    "from": "5561981290725",
+    "to": "actually-production",
+    "direction": "IN",
+    "channel": "whatsapp",
+    "visitor": {
+      "name": "Daniel Luz",
+      "firstName": "Daniel",
+      "lastName": "Luz"
+    },
+    "contents": [
+      {
+        "type": "json",
+        "payload": {
+          "visitor": {
+            "name": "Daniel Luz",
+            "firstName": "Daniel",
+            "lastName": "Luz"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "Fazer pedido"
+      }
+    ]
+  }
+}

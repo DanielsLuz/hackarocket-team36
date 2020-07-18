@@ -1,0 +1,39 @@
+{
+  "id": "7b3ccc53-9d66-44f6-9db6-a01209ccf045",
+  "timestamp": "2020-07-18T16:55:24.417Z",
+  "type": "MESSAGE",
+  "subscriptionId": "56c85705-a645-4a0d-bebb-c43cb59c1079",
+  "channel": "whatsapp",
+  "direction": "IN",
+  "message": {
+    "id": "f8d94a06-d74f-4673-a730-72f5bf507ece",
+    "from": "5561981290725",
+    "to": "actually-production",
+    "direction": "IN",
+    "channel": "whatsapp",
+    "visitor": {
+      "name": "Daniel Luz",
+      "firstName": "Daniel",
+      "lastName": "Luz"
+    },
+    "contents": [
+      {
+        "type": "json",
+        "payload": {
+          "visitor": {
+            "name": "Daniel Luz",
+            "firstName": "Daniel",
+            "lastName": "Luz"
+          }
+        }
+      },
+      {
+        "type": "json",
+        "payload": {
+          "latitude": -23.5950697,
+          "longitude": -46.6277496
+        }
+      }
+    ]
+  }
+}

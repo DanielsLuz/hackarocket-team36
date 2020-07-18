@@ -1,0 +1,36 @@
+{
+  "id": "443b9329-4116-413a-b231-068e1f8b5149",
+  "timestamp": "2020-07-18T16:47:28.368Z",
+  "type": "MESSAGE",
+  "subscriptionId": "56c85705-a645-4a0d-bebb-c43cb59c1079",
+  "channel": "whatsapp",
+  "direction": "IN",
+  "message": {
+    "id": "bc67295f-d752-416f-a437-df5c10b95e8e",
+    "from": "5561981290725",
+    "to": "actually-production",
+    "direction": "IN",
+    "channel": "whatsapp",
+    "visitor": {
+      "name": "Daniel Luz",
+      "firstName": "Daniel",
+      "lastName": "Luz"
+    },
+    "contents": [
+      {
+        "type": "json",
+        "payload": {
+          "visitor": {
+            "name": "Daniel Luz",
+            "firstName": "Daniel",
+            "lastName": "Luz"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "Açúcar refinado, 5\nÓleo, 50"
+      }
+    ]
+  }
+}
