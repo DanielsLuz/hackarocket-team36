@@ -1,6 +1,6 @@
 class User
   include Mongoid::Document
-  include Mongoid::Paranoia
+  include Mongoid::Timestamps
 
-  field :phone, type: String
+  field :phone_number, type: String
 end
