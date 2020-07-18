@@ -1,6 +1,6 @@
 module Zenvia
   class SendWhatsappMessage
-    def call(number, message)
+    def self.call(number, message)
       RestClient::Request.execute(
         url: "https://api.zenvia.com/v1/channels/whatsapp/messages",
         method: :post,
@@ -15,7 +15,7 @@ module Zenvia
         }
       )
     rescue RestClient::BadRequest => error
-      JSON.parse(error.response.body)
+      raise JSON.parse(error.response.body)
     end
   end
 end
