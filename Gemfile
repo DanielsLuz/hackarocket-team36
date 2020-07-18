@@ -22,6 +22,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'redis'
+gem 'rails_admin', '~> 2.0'
+gem 'kaminari-mongoid'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 # Reduces boot times through caching; required in config/boot.rb
