@@ -4,6 +4,7 @@ class ProductBatch
   field :batch_size, type: Integer
   field :product, type: String
   field :complete, type: Boolean, default: false
+  field :unit_price, type: Integer
 
   has_many :orders
 
@@ -15,6 +16,7 @@ class ProductBatch
 
   def add_order(new_order)
     orders << new_order
+    new_order.update(unit_price: unit_price)
     if current_batch_size >= batch_size
       CollectivePurchase.create!(orders: orders)
       self.complete = true
