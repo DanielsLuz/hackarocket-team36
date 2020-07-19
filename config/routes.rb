@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   namespace 'api', defaults: { format: :json } do
     root to: 'welcome#index'
 
+    namespace "pagarme" do
+      post "update"
+    end
+
     namespace 'zenvia' do
       scope 'wpp' do
         post 'message_received'

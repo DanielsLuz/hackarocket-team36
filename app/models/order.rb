@@ -5,6 +5,7 @@ class Order
   field :quantity, type: Integer
   field :product, type: String
   field :unit_price, type: Integer
+  field :status, type: String, default: ""
 
   belongs_to :user
   belongs_to :collective_purchase, optional: true
