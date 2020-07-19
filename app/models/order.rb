@@ -9,7 +9,7 @@ class Order
 
   belongs_to :user
   belongs_to :collective_purchase, optional: true
-  belongs_to :product_batch
+  belongs_to :product_batch, optional: true
 
   delegate :phone_number, to: :user
 
