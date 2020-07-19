@@ -1,5 +1,6 @@
 class Order
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :quantity, type: Integer
   field :product, type: String

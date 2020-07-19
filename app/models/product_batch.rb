@@ -1,5 +1,6 @@
 class ProductBatch
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :batch_size, type: Integer
   field :product, type: String
