@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       scope 'wpp' do
         post 'message_received'
         post 'order_received'
+        patch 'update_delivery_address'
       end
     end
   end
