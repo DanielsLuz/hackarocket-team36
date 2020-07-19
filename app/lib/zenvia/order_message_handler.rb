@@ -51,6 +51,7 @@ module Zenvia
     def items(message_text)
       message_text
         .split("\n")
+        .reject(&:blank?)
         .map { |line| line.split(',').map(&:strip) }
     end
   end
