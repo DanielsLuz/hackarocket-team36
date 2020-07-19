@@ -9,6 +9,10 @@ module Api
       Zenvia::OrderMessageHandler.new.call(*message_params)
     end
 
+    def update_delivery_address
+      Zenvia::DeliveryAddressMessageHandler.new.call(*message_params)
+    end
+
     private
 
     def message_params
