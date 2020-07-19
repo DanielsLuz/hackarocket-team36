@@ -12,6 +12,15 @@ module Api
       User.find_or_create_by(phone_number: message_params[:from])
     end
 
+    def check_address
+      user = User.find_by(phone_number: message_params[:from])
+      if user.address
+        head :ok
+      else
+        head :not_found
+      end
+    end
+
     private
 
     def message_params
