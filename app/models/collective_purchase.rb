@@ -3,11 +3,13 @@ class CollectivePurchase
 
   has_many :orders
 
+  after_create :alert_success_order
+
   def alert_success_order
     orders.map(&:user).map(&:phone_number).each do |cellphone|
       Zenvia::Api::SendWhatsappMessage.call(
         cellphone,
-        "Seu pedido de atacado foi construido. Estamos te enviado o link para pagamento"
+        "Seu pedido coletivo já está em andamento. Estamos te enviado o link para pagamento"
       )
     end
   end
