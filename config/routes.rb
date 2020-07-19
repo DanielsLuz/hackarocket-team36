@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         post 'message_received'
         post 'order_received'
         patch 'update_delivery_address'
+        post 'create_user'
       end
     end
   end
