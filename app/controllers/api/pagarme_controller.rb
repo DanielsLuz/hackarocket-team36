@@ -8,7 +8,7 @@ module Api
 
     private
     def order_id
-      params[:order][:items][0][:id]
+      params["order"]["items"]["0"]["id"]
     end
   end
 end
