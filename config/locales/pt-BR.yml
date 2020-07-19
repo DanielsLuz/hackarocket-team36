@@ -1,0 +1,5 @@
+pt-BR:
+  whatsapp_bot:
+    welcome_message: ''
+    ask_for_address: ''
+    success_order_message: 'Seu pedido coletivo já está em andamento. Estamos te enviado o link para pagamento'
