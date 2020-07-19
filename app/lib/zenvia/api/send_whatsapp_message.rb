@@ -6,7 +6,7 @@ module Zenvia
           url: "https://api.zenvia.com/v1/channels/whatsapp/messages",
           method: :post,
           payload: {
-            "from": "actually-production",
+            "from": ENV['ZENVIA_SENDER'],
             "to": number,
             "contents": [{ "type":"text","text": message }]
           }.to_json,
