@@ -10,6 +10,8 @@ class Order
   belongs_to :collective_purchase, optional: true
   belongs_to :product_batch
 
+  delegate :phone_number, to: :user
+
   def to_pagarme_object
     {
       "id": self.id.to_s,

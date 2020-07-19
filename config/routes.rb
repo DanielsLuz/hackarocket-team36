@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace 'zenvia' do
       scope 'wpp' do
         post 'message_received'
+        post 'order_received'
       end
     end
   end

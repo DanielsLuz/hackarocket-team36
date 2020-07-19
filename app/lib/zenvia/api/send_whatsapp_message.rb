@@ -17,6 +17,8 @@ module Zenvia
         )
       rescue RestClient::BadRequest => error
         raise JSON.parse(error.response.body)
+      rescue Exception => error
+        puts error
       end
     end
   end
