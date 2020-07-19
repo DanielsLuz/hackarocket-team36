@@ -13,7 +13,11 @@ module Zenvia
     def call
       return unless whatsapp_incoming_message_event?
 
-      if delivery_address_message?
+      if first_user_message?
+        Zenvia::WelcomeMessageHandler.new.call(
+          phone_number: message_event[:from]
+        )
+      elsif delivery_address_message?
         Zenvia::DeliveryAddressMessageHandler.new.call(
           phone_number: message_event[:from],
           address_message: message_text
@@ -41,6 +45,10 @@ module Zenvia
 
     def message_text
       @message_text ||= contents.find { |content| content[:type] == "text" }.dig(:text)
+    end
+
+    def first_user_message?
+      User.find_by(phone_number: message_event[:from]).present?
     end
 
     def delivery_address_message?
