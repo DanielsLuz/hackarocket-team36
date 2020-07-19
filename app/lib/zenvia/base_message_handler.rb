@@ -48,7 +48,7 @@ module Zenvia
     end
 
     def first_user_message?
-      User.find_or_initialize_by(phone_number: message_event[:from]).persisted?
+      User.find_or_initialize_by(phone_number: message_event[:from]).new_record?
     end
 
     def delivery_address_message?
