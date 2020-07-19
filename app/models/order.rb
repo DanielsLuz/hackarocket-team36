@@ -23,4 +23,14 @@ class Order
       "tangible": false
     }
   end
+
+  def product_name
+    {
+      sugar: 'açúcar',
+      oil: 'óleo',
+      rice: 'arroz',
+      beans: 'feijão',
+      meat: 'carne'
+    }[product.to_sym]
+  end
 end

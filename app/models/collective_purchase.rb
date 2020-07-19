@@ -10,8 +10,9 @@ class CollectivePurchase
     orders.each do |order|
       Zenvia::Api::SendWhatsappMessage.call(
         order.phone_number,
-        "Seu pedido de #{order.product} coletivo já está em andamento.
-         Estamos te enviado o link para pagamento"
+        "✔️ Sua compra coletiva de #{order.product_name} já tem pedidos suficientes.\nAgora só precisamos" \
+        " receber os pagamentos para mandar o pedido ao fornecedor.\nAcesse o" \
+        " link para fazer o pagamento do seu pedido.\n\n #{Pagarme::PaymentLink.new(order).url}"
       )
     end
   end

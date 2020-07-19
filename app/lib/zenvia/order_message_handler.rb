@@ -3,7 +3,7 @@ module Zenvia
     ITEM_CATEGORIES = {
       sugar: /acucar/i,
       oil: /oleo/i,
-      arroz: /arroz/i,
+      rice: /arroz/i,
       beans: /feijao/i,
       meat: /carne/i
     }.freeze

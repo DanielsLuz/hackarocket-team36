@@ -14,6 +14,9 @@ Rails.application.routes.draw do
       scope 'wpp' do
         post 'message_received'
         post 'order_received'
+        patch 'update_delivery_address'
+        post 'create_user'
+        get 'check_address'
       end
     end
   end

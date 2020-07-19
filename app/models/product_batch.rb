@@ -32,6 +32,6 @@ class ProductBatch
   end
 
   def initialize_new_batch
-    self.class.create!(product: product, batch_size: batch_size)
+    self.class.create!(product: product, batch_size: batch_size, unit_price: unit_price)
   end
 end
