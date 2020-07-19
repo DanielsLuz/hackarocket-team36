@@ -3,7 +3,8 @@ module Zenvia
     MESSAGE_PATTERNS = {
       MAKE_ORDER: Regexp.union(
         [/.*fazer.*pedido.*/i, /pedidos/i, /compras/i]
-      )
+      ),
+      DELIVERY_ADDRESS: /(.*),(.*),(.*)/
     }.freeze
 
     def initialize(event:)
@@ -52,7 +53,7 @@ module Zenvia
     end
 
     def delivery_address_message?
-      message_text.match(/(.*),(.*),(.*)/)
+      message_text.match(MESSAGE_PATTERNS[:DELIVERY_ADDRESS])
     end
 
     def ordering_request_message?
