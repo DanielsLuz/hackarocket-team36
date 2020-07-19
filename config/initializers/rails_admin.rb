@@ -1,6 +1,5 @@
 RailsAdmin.config do |config|
-
-  config.model 'ProductBatch' do
+  config.model ProductBatch do
     list do
       configure :current_batch_size
     end

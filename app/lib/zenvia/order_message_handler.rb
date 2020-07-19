@@ -19,7 +19,7 @@ module Zenvia
 
     def build_orders(user, message_text)
       build_item_payload(items(message_text)).map do |item|
-        product_batch = ProductBatch.find_by(product: item[:product])
+        product_batch = ProductBatch.basket_by(item[:product])
 
         product_batch.add_order(
           Order.new(
