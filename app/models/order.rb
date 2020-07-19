@@ -22,4 +22,14 @@ class Order
       "tangible": false
     }
   end
+
+  def product_name
+    {
+      sugar: 'Açúcar',
+      oil: 'Óleo',
+      rice: 'Arroz',
+      beans: 'Feijão',
+      meat: 'Carne'
+    }[product]
+  end
 end
