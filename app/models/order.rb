@@ -25,11 +25,11 @@ class Order
 
   def product_name
     {
-      sugar: 'Açúcar',
-      oil: 'Óleo',
-      rice: 'Arroz',
-      beans: 'Feijão',
-      meat: 'Carne'
+      sugar: 'açúcar',
+      oil: 'óleo',
+      rice: 'arroz',
+      beans: 'feijão',
+      meat: 'carne'
     }[product.to_sym]
   end
 end
