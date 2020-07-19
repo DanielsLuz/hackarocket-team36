@@ -32,7 +32,7 @@ module Zenvia
     end
 
     def build_item_payload(items)
-      items.drop(1).map do |item_data|
+      items.map do |item_data|
         {
           product: product_category(item_data[0]),
           quantity: item_data[1]
