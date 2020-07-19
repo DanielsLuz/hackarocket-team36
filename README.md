@@ -2,7 +2,7 @@
 
 ![Nosso Carrinho Logo](./assets/nosso_carrinho_logo.jpeg)
 
-#### Link da demo: [hackarocket-team36](https://hackarocket-team36.herokuapp.com/)
+#### Link da demo: [hackarocket-team36](https://hackarocket-team36.herokuapp.com/admin)
 
 [Link do diagrama do Zenvia Flow](./assets/diagrama_zenviaflow.png)
 
