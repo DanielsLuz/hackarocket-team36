@@ -6,5 +6,5 @@
   beans: 100,
   meat: 150
 }.each do |product, quantity|
-  ProductBatch.create!(product: product, batch_size: quantity)
+  ProductBatch.create!(product: product, batch_size: quantity, unit_price: quantity * 10)
 end
