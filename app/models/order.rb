@@ -30,6 +30,6 @@ class Order
       rice: 'Arroz',
       beans: 'Feijão',
       meat: 'Carne'
-    }[product]
+    }[product.to_sym]
   end
 end
